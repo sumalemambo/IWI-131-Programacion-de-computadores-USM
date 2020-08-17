@@ -1,4 +1,9 @@
+################################################################
+# Certamen 1 2017-1 Nombre: Ignacio Quintana ROL:201973610-8   #
+# Mail: ignacio.quintana@usm.cl                                #
+################################################################
 
+#Problema 3 a)
 def ganador(c1,c2,c3,meta):
     if(c1 < meta and c2 < meta and c3 < meta):
         return 0
@@ -10,7 +15,7 @@ def ganador(c1,c2,c3,meta):
     if(c3 > c1 and c3 > c2):
         winner = 3
     return winner
-
+#Problema 3b)
 def contar(palabra):
     palabra = palabra.lower()
     vocales = 'aeiou'
@@ -19,7 +24,7 @@ def contar(palabra):
         if i in vocales:
             contador += 1
     return contador
-
+#Problema 3c)
 def juego(meta):
     alianza1 = alianza2 = alianza3 = 0
     winner = 0
