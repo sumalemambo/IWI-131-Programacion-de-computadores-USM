@@ -5,7 +5,7 @@ def lenght(numero):
         num_size += 1
     return num_size
 
-def palindromo(numero):
+def invert(numero):
     num_size = lenght(numero)
     number = 0
     while(numero != 0):
@@ -15,12 +15,12 @@ def palindromo(numero):
     return number
 
 def palindromico(numero,pasos):
-    numero += palindromo(numero)
-    if(numero == palindromo(numero)):
+    numero += invert(numero)
+    if(numero == invert(numero)):
         print("Generado en " + str(pasos) + " pasos")
-        print("Palindromo final: " +str(numero))
+        print("Palidromo final: " +str(numero))
     else:
         print("Intermedio: " + str(numero))
         palindromico(numero,pasos + 1)
 
-palindromico(int(input("Ingrese un numero palidromico: ")),1)
+palindromico(int(input("Ingrese un numero palindromico: ")),1)
