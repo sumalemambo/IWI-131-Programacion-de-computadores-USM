@@ -10,24 +10,28 @@
 ##################################################################
 
 #Problema 2) a)
+
 def mejor(votos):
+
     D = votos % 10
     votos = votos // 10
     C = votos % 10
     votos = votos // 10
-    B = votos % 10 
+    B = votos % 10
     votos = votos // 10
     A = votos % 10
-    if(A >= B and A >= C and A >= D and A >= 4):
-        return 'A'
-    elif(B >= A and B >= C and B >= D and B >= 4):
-        return 'B'
-    elif(C >= A and C >= B and C>= D and C >= 4):
-        return 'C'
-    elif(D >= A and D >= B and D >= C and D >= 4):
-        return 'D'
-    else:
+    votos = votos // 10
+
+    if(A < 4 and B < 4 and C < 4 and D < 4):
         return ''
+    elif(A > B and A > C and A > D):
+        return 'A'
+    elif(B > A and B > C and B > D):
+        return 'B'
+    elif(C > A and C > B and C > D):
+        return 'C'
+    else:
+        return 'D'
 #Problema 2) b)
 #######################################################################
 # Programa principal                                                  #
@@ -35,32 +39,31 @@ def mejor(votos):
 # correspondiente a los discos A,B,C y D ,y calcula cual es el mejor  #
 # al final obtiene cual se repite como mejor                          #
 #######################################################################
-rep = 1000
 A = B = C = D = 0
-while(rep != 0):
-    string = mejor(int(input())) 
-    if(string == 'A'):
+for i in range(0,1000):
+
+    a = mejor(int(input("Voto? ")))
+
+    if(a == 'A'):
         A += 1
-    elif(string == 'B'):
+    elif(a == 'B'):
         B += 1
-    elif(string == 'C'):
+    elif(a == 'C'):
         C += 1
-    elif(string == 'D'):
+    elif(a == 'D'):
         D += 1
-    rep-=1
 
-
-if(A >= B and A >= C and A >= D):
-    max = 'A'
-    maxCant = A
-elif(B >= A and B >= C and B >= D):
-    max = 'B'
-    maxCant = B
-elif(C >= A and C >= B and C>= D):
-    max = 'C'
-    maxCant =  C
+if(A > B and A > C and A > D):
+    a = 'A'
+    maximo = A
+elif(B > A and B > C and B > D):
+    a = 'B'
+    maximo = B
+elif(C > A and C > B and C > D):
+    a  = 'C'
+    maximo = C
 else:
-    max = 'D'
-    maxCant = D
+    a = 'D'
+    maximo = D
 
-print("La mejor cancion fue " + max + " con " + str(maxCant) +" votos")
+print("El ganador fue " + a + " con " + str(maximo) + " votos")
